@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace Client{% endblock %}
+
+{% block body %}
+    
+
+        
+      {% if user %}
+    <h1 class="h3 mb-3 font-weight-normal"> Bonjour, {{ user.firstname }} </h1>
+    {% if is_granted('ROLE_ADMIN') %}
+        <div>
+        <p> Tu es admin </p>
+        <h2>Publie ton jeu</h2>
+
+        </div>
+    {% else %}
+        <p> Tu n'es pas admin </p>
+    {% endif %}
+{% endif %}
+
+
+
+       <button><a href="{{ path('app_logout') }}">Se deconnecter</a></button>
+        
+{% endblock %}
